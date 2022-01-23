@@ -3,6 +3,7 @@ namespace CustomPaint
 {
     class Ring : Figure
     {
+        //класс кольцо
         Circle circle1;
         Circle circle2;
         public Ring() : base()
@@ -38,7 +39,7 @@ namespace CustomPaint
             Console.WriteLine("--------------------");
             Console.WriteLine("Type: Ring");
             Console.WriteLine($"X: {this.xCentre}");
-            Console.WriteLine($"X: {this.yCentre}");
+            Console.WriteLine($"Y: {this.yCentre}");
             Console.WriteLine($"Lenght: {lenght}");
             Console.WriteLine($"Square: {square}");
             Console.WriteLine("--------------------");

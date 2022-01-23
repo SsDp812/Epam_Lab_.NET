@@ -3,6 +3,7 @@ namespace CustomPaint
 {
     class Square : Figure
     {
+        //класс квадрат
         protected int side1;
         public Square(int x, int y, int side) : base(x, y)
         {
@@ -33,7 +34,7 @@ namespace CustomPaint
             Console.WriteLine("--------------------");
             Console.WriteLine("Type: Square");
             Console.WriteLine($"X: {this.xCentre}");
-            Console.WriteLine($"X: {this.yCentre}");
+            Console.WriteLine($"Y: {this.yCentre}");
             Console.WriteLine($"Perimeter: {perimeter}");
             Console.WriteLine($"Square: {sqr}");
             Console.WriteLine($"Side: {side1}");

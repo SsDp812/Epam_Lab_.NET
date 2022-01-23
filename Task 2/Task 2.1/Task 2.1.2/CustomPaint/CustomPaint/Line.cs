@@ -3,6 +3,7 @@ namespace CustomPaint
 {
     class Line : Figure
     {
+        //класс линия
         protected int lenght;
         public Line(int len, int x,int y) : base(x,y)
         {
@@ -18,7 +19,7 @@ namespace CustomPaint
             Console.WriteLine("--------------------");
             Console.WriteLine("Type: Line");
             Console.WriteLine($"X: {this.xCentre}");
-            Console.WriteLine($"X: {this.yCentre}");
+            Console.WriteLine($"Y: {this.yCentre}");
             Console.WriteLine($"Lenght: {lenght}");
             Console.WriteLine("--------------------");
         }

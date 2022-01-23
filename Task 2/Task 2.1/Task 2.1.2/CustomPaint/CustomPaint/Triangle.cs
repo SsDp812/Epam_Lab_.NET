@@ -3,6 +3,7 @@ namespace CustomPaint
 {
     class Triangle : Figure
     {
+        //класс треугольник
         int side1;
         int side2;
         int side3;
@@ -39,7 +40,7 @@ namespace CustomPaint
             Console.WriteLine("--------------------");
             Console.WriteLine("Type: Triangle");
             Console.WriteLine($"X: {this.xCentre}");
-            Console.WriteLine($"X: {this.yCentre}");
+            Console.WriteLine($"Y: {this.yCentre}");
             Console.WriteLine($"Perimeter: {perimeter}");
             Console.WriteLine($"Square: {sqr}");
             Console.WriteLine($"Side1: {side1}");

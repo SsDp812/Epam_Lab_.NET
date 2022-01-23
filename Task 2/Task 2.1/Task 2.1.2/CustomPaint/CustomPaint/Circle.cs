@@ -4,6 +4,7 @@ namespace CustomPaint
 {
     class Circle : Сircumference
     {
+        //класс Круг
         public Circle(int x, int y, int radius) : base(x, y, radius)
         {
         }
@@ -23,7 +24,7 @@ namespace CustomPaint
             Console.WriteLine("--------------------");
             Console.WriteLine("Type: Сircumference");
             Console.WriteLine($"X: {this.xCentre}");
-            Console.WriteLine($"X: {this.yCentre}");
+            Console.WriteLine($"Y: {this.yCentre}");
             Console.WriteLine($"Lenght: {lenght}");
             Console.WriteLine($"Square: {square}");
             Console.WriteLine("--------------------");

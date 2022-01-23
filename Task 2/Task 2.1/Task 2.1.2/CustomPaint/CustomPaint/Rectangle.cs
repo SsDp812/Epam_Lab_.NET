@@ -3,6 +3,7 @@ namespace CustomPaint
 {
     class Rectangle : Square
     {
+        //класс прямоугольник
         int side2;
         public Rectangle(int x, int y, int side1, int side2) : base(x, y, side1)
         {
@@ -26,7 +27,7 @@ namespace CustomPaint
             Console.WriteLine("--------------------");
             Console.WriteLine("Type: Rectangle");
             Console.WriteLine($"X: {this.xCentre}");
-            Console.WriteLine($"X: {this.yCentre}");
+            Console.WriteLine($"Y: {this.yCentre}");
             Console.WriteLine($"Perimeter: {perimeter}");
             Console.WriteLine($"Square: {sqr}");
             Console.WriteLine($"Side1: {side1}");

@@ -4,6 +4,7 @@ namespace CustomPaint
 {
     class Сircumference : Figure
     {
+        //класс окружность
         protected int radius { get; set; }
         public Сircumference(int x, int y, int radius) : base(x, y)
         {
@@ -26,7 +27,7 @@ namespace CustomPaint
             Console.WriteLine("--------------------");
             Console.WriteLine("Type: Сircumference");
             Console.WriteLine($"X: {this.xCentre}");
-            Console.WriteLine($"X: {this.yCentre}");
+            Console.WriteLine($"Y: {this.yCentre}");
             Console.WriteLine($"Lenght: {lenght}");
             Console.WriteLine("--------------------");
         }
