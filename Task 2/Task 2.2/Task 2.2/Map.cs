@@ -126,17 +126,17 @@ namespace Task_2._2
         {
             //метод для вывода правил
             Console.WriteLine();
-            Console.WriteLine("----------------------Rules----------------------");
+            Console.WriteLine("Rules");
             Console.WriteLine("-------------------------------------------------");
-            Console.WriteLine("--------------- + - its you----------------------");
-            Console.WriteLine("------------- A and B - food buffs---------------");
-            Console.WriteLine("------- A - Apple - buff 25hp to health----------");
-            Console.WriteLine("------ B - Banana - buff 15hp to health----------");
-            Console.WriteLine("---------------- Z and C - enemies---------------");
-            Console.WriteLine("-------- Z - Zombie - attack with 35hp-----------");
-            Console.WriteLine("------- C - Crazy Zombie - attck with 40hp-------");
-            Console.WriteLine("------- T - Tree (Obstacle) ---------------------");
-            Console.WriteLine("------ Collect 3 coins ($) to win!!!------------");
+            Console.WriteLine("+ - its you");
+            Console.WriteLine("A and B - food buffs");
+            Console.WriteLine("A - Apple - buff 25hp to health");
+            Console.WriteLine("B - Banana - buff 15hp to health");
+            Console.WriteLine("Z and C - enemies");
+            Console.WriteLine("Z - Zombie - attack with 35hp");
+            Console.WriteLine("C - Crazy Zombie - attck with 40hp");
+            Console.WriteLine("T - Tree (Obstacle)");
+            Console.WriteLine("Collect 3 coins ($) to win!!!");
             Console.WriteLine("-------------------------------------------------");
         }
         public void MoveEnemies()
