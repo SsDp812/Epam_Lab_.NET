@@ -4,29 +4,29 @@ namespace CustomPaint
     class Square : Figure
     {
         //класс квадрат
-        protected int side1;
+        protected Line side1;
         public Square(int x, int y, int side) : base(x, y)
         {
-            this.side1 = side;
+            this.side1 = new Line(side,x,y);
         }
         public Square() : base()
         {
-            Console.Write("Enter Side: ");
-            this.side1 = int.Parse(Console.ReadLine());
+            Console.WriteLine("---Enter Side1---");
+            this.side1 = new Line();
         }
 
         public int perimeter
         {
             get
             {
-                return side1 * 4;
+                return side1.lenght * 4;
             }
         }
         public int sqr
         {
             get
             {
-                return side1 * side1;
+                return side1.lenght * side1.lenght;
             }
         }
         public override void showInfo()
@@ -37,7 +37,7 @@ namespace CustomPaint
             Console.WriteLine($"Y: {this.yCentre}");
             Console.WriteLine($"Perimeter: {perimeter}");
             Console.WriteLine($"Square: {sqr}");
-            Console.WriteLine($"Side: {side1}");
+            Console.WriteLine($"Side: {side1.lenght}");
             Console.WriteLine("--------------------");
         }
     }

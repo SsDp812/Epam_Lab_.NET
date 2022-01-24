@@ -4,23 +4,23 @@ namespace CustomPaint
     class Rectangle : Square
     {
         //класс прямоугольник
-        int side2;
+        Line side2;
         public Rectangle(int x, int y, int side1, int side2) : base(x, y, side1)
         {
-            this.side2 = side2;
+            Console.WriteLine("---Enter Side2---");
+            this.side2 = new Line(x, y, side2);
         }
         public Rectangle() : base()
         {
-            Console.Write("Side2: ");
-            this.side2 = int.Parse(Console.ReadLine());
+            this.side2 = new Line();
         }
         public new int sqr
         {
-            get { return side1 * side2; }
+            get { return side1.lenght * side2.lenght; }
         }
         public new int perimeter
         {
-            get { return ((side1 + side2) * 2); }
+            get { return ((side1.lenght + side2.lenght) * 2); }
         }
         public override void showInfo()
         {
@@ -30,8 +30,8 @@ namespace CustomPaint
             Console.WriteLine($"Y: {this.yCentre}");
             Console.WriteLine($"Perimeter: {perimeter}");
             Console.WriteLine($"Square: {sqr}");
-            Console.WriteLine($"Side1: {side1}");
-            Console.WriteLine($"Side1: {side2}");
+            Console.WriteLine($"Side1: {side1.lenght}");
+            Console.WriteLine($"Side2: {side2.lenght}");
             Console.WriteLine("--------------------");
         }
     }

@@ -4,14 +4,14 @@ namespace CustomPaint
     class Line : Figure
     {
         //класс линия
-        protected int lenght;
+        public int lenght;
         public Line(int len, int x,int y) : base(x,y)
         {
             this.lenght = len;
         }
         public Line() : base()
         {
-            Console.Write("Enter Lenght: ");
+            Console.Write("Enter Lenght of line: ");
             this.lenght = int.Parse(Console.ReadLine());
         }
         public override void showInfo()

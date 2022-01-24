@@ -13,9 +13,9 @@ namespace CustomPaint
         }
         public Figure()
         {
-            Console.Write("Eneter X: ");
+            Console.Write("Eneter X center of element: ");
             this.xCentre = int.Parse(Console.ReadLine());
-            Console.Write("Eneter Y: ");
+            Console.Write("Eneter Y center of element: ");
             this.yCentre = int.Parse(Console.ReadLine());
         }
         public abstract void showInfo();

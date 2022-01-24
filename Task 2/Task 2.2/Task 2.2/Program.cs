@@ -6,12 +6,13 @@ namespace Task_2._2
     {
         static void Main(string[] args)
         {
+            Console.SetWindowSize(50, 40);
             Map mp = new Map(14, 10);
             mp.printMap();
             bool cond = true;
             while (cond)
             {
-                mp.changeMap();
+                mp.MakeMove();
                 mp.MoveEnemies();
                 Console.Clear();
                 mp.printMap();

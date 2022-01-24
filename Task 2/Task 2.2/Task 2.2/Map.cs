@@ -20,26 +20,38 @@ namespace Task_2._2
             this.height = height;
             arrMap = new ElementOfMap[width, height];
             Random rnd = new Random();
-            for (int i = 0; i < 3; i++)
+
+
+            //Создание карты и генерация элементов на ней
+            for (int i = 0; i < 4; i++)
             {
                 arrMap[rnd.Next(width), rnd.Next(height)] = new Zombie();
             }
-            for (int i = 0; i < 2; i++)
+            for (int i = 0; i < 3; i++)
             {
                 arrMap[rnd.Next(width), rnd.Next(height)] = new CrazyZombie();
             }
-            for (int i = 0; i < 2; i++)
+            for (int i = 0; i < 3; i++)
             {
                 arrMap[rnd.Next(width), rnd.Next(height)] = new Banana();
             }
-            for(int i = 0;i < 2; i++)
+            for(int i = 0;i < 3; i++)
             {
                 arrMap[rnd.Next(width), rnd.Next(height)] = new Apple();
             }
+            /*
+            for (int i = 0; i < 3; i++)
+            {
+                arrMap[rnd.Next(width), rnd.Next(height)] = new Obstacle();
+            }
+            */
+            // obstacles dont working good yet
             for (int i = 0; i < 3; i++)
             {
                 arrMap[rnd.Next(width), rnd.Next(height)] = new Coin();
             }
+
+            //Создание персонажа
             arrMap[0, 0] = new Character();
             ch = (Character)arrMap[0, 0];
             xCh = 0;
@@ -47,6 +59,19 @@ namespace Task_2._2
         }
         public void printMap()
         {
+            //метод для отрисовки карты
+            Console.WriteLine(@"
+         █───▄▀█▀▀█▀▄▄───▐█──────▄▀█▀▀█▀▄▄
+        █───▀─▐▌──▐▌─▀▀──▐█─────▀─▐▌──▐▌─█▀
+       ▐▌──────▀▄▄▀──────▐█▄▄──────▀▄▄▀──▐▌
+       █────────────────────▀█────────────█
+      ▐█─────────────────────█▌───────────█
+       █───────────────█▄───▄█────────────█
+       ▐▌───────────────▀███▀────────────▐▌
+        █──────────▀▄───────────▄▀───────█
+         █───────────▀▄▄▄▄▄▄▄▄▄▀────────█
+");
+            Console.Write("         ");
             Console.BackgroundColor = ConsoleColor.DarkCyan;
             Console.ForegroundColor = ConsoleColor.Black;
             Console.Write($"Wallet: {ch.wallet}$        Health: {ch.health}%");
@@ -54,6 +79,7 @@ namespace Task_2._2
             Console.WriteLine();
             for(int i = 0; i < this.width; i++)
             {
+                Console.Write("         ");
                 for (int j = 0; j < this.height; j++)
                 {
                     if(arrMap[i, j] != null)
@@ -78,6 +104,10 @@ namespace Task_2._2
                             case "+":
                                 Console.ForegroundColor = ConsoleColor.Blue;
                                 break;
+                            case "T":
+                                Console.BackgroundColor = ConsoleColor.Green;
+                                Console.ForegroundColor = ConsoleColor.Black;
+                                break;
                         }
                         Console.Write($"[{arrMap[i, j].icon}]");
                         Console.ResetColor();
@@ -89,21 +119,29 @@ namespace Task_2._2
                 }
                 Console.WriteLine();
             }
+            PrintRules();
+        }
+
+        public void PrintRules()
+        {
+            //метод для вывода правил
             Console.WriteLine();
-            Console.WriteLine("----------------------Rules-----------------");
-            Console.WriteLine("--------------------------------------------");
-            Console.WriteLine("--------------- + - its youu!!!)))----------");
-            Console.WriteLine("------------- A and B - food buffs----------");
-            Console.WriteLine("------- A - Apple - buff 25hp to health-----");
-            Console.WriteLine("------ B - Banana - buff 15hp to health-----");
-            Console.WriteLine("---------------- Z and C - enemies-----------");
-            Console.WriteLine("-------- Z - Zombie - attack with 35hp-------");
-            Console.WriteLine("------- C - Crazy Zombie - attck with 40hp---");
-            Console.WriteLine("------ Collect 3 coins ($) to win!!!---------");
-            Console.WriteLine("---------------------------------------------");
+            Console.WriteLine("----------------------Rules----------------------");
+            Console.WriteLine("-------------------------------------------------");
+            Console.WriteLine("--------------- + - its you----------------------");
+            Console.WriteLine("------------- A and B - food buffs---------------");
+            Console.WriteLine("------- A - Apple - buff 25hp to health----------");
+            Console.WriteLine("------ B - Banana - buff 15hp to health----------");
+            Console.WriteLine("---------------- Z and C - enemies---------------");
+            Console.WriteLine("-------- Z - Zombie - attack with 35hp-----------");
+            Console.WriteLine("------- C - Crazy Zombie - attck with 40hp-------");
+            Console.WriteLine("------- T - Tree (Obstacle) ---------------------");
+            Console.WriteLine("------ Collect 3 coins ($) to win!!!------------");
+            Console.WriteLine("-------------------------------------------------");
         }
         public void MoveEnemies()
         {
+            //метод для передвижения врагов
             for (int i = 0; i < this.width; i++)
             {
                 for (int j = 0; j < this.height; j++)
@@ -150,8 +188,9 @@ namespace Task_2._2
         }
 
 
-        public void changeMap()
+        public void MakeMove()
         {
+            //метод для передвижения персонажа
             int xTemp = xCh;
             int yTemp = yCh;
             ConsoleKey key = Console.ReadKey().Key;
@@ -182,8 +221,13 @@ namespace Task_2._2
                     }
                     break;
             }
-            if (arrMap[xCh, yCh] != null)
+            if (arrMap[xCh, yCh] == null)
             {
+                arrMap[xTemp, yTemp] = null;
+                arrMap[xCh, yCh] = ch;
+            }
+            if (arrMap[xCh, yCh] != null) { 
+            
                 if (arrMap[xCh, yCh].icon == "A" || arrMap[xCh, yCh].icon == "B")
                 {
                     ch.getBuff((Food)arrMap[xCh, yCh]);
@@ -196,9 +240,14 @@ namespace Task_2._2
                 {
                     ch.getCoin();
                 }
+                if (arrMap[xCh, yCh].icon != "T")
+                {
+                    arrMap[xTemp, yTemp] = null;
+                    arrMap[xCh, yCh] = ch;
+                }
             }
-            arrMap[xTemp, yTemp] = null;
-            arrMap[xCh, yCh] = ch;
+
+            
             
         }            
     }

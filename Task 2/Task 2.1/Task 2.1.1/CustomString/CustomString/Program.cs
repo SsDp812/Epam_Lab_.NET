@@ -6,6 +6,8 @@ namespace CustomString
     {
         static void Main(string[] args)
         {
+
+            //Example of working myString dll library
             myString str = new myString("Hello World!");
             Console.WriteLine(str.ToString());
             myString str2 = new myString("Hello Everyone!");

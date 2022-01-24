@@ -5,7 +5,7 @@ namespace CustomPaint
     class Circle : Сircumference
     {
         //класс Круг
-        public Circle(int x, int y, int radius) : base(x, y, radius)
+        public Circle(int x, int y, int radius) : base(x, y, radius) 
         {
         }
         public Circle() : base()
