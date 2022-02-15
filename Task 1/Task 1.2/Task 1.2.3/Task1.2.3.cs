@@ -17,5 +17,6 @@ namespace Task1_2_3
             }
             Console.WriteLine($"Count: {count}");
         }
+        
     }
 }
